@@ -1,7 +1,7 @@
 # DIAMOND BLUEPRINTER
 
-EVM Compatible Smart Contract Creator that uses Audited On-Chain EIP-2535
-Smart Contracts as blueprints that you can use to build your own smart contracts.  
+EVM Compatible Smart Contract Creator that uses Audited On-Chain EIP-2535: Diamonds, Multi-Facet Proxy
+Smart Contract Facets as blueprints that developers can use to build your own EIP-2535 Smart Contracts.  
 
 [EIP-2535: Diamonds, Multi-Facet Proxy](https://eips.ethereum.org/EIPS/eip-2535)
 
@@ -16,9 +16,10 @@ The Diamond Blueprinter dynamically creates EIP-2535 Smart Contracts using exist
 facets. Using our plug-and-play system, you can create custom contracts that meet your exact needs using battle tested on-chain assets.
 
 ## Problem
-The most frequently cited deficiency in Web3 Development made by Web3 Developers in 
-the [G7 Industry Report](#) was the lack of commonly used smart contracts that be 
-easily resourced by common use cases that were secure and battle tested. 
+The problem experienced by the greatest number of Web3 Developers in the development of Web3 
+products as cited in the [G7 Industry Report](#) was a lack of off-the-shelf smart contracts that are 
+commonly used. The contracts should be easy to find, should be queryable by 
+common use cases, should be secure and should be battle tested. 
 
 ## Solution
 The creation of hundreds of On-chain EIP-2535 Diamond Facets that act as battle tested
@@ -30,6 +31,8 @@ yet still allows the developer to further customize the contract to meet their s
 needs.   
 
 ### Facet
+A Facet is simply an On-Chain Library of Functions.
+
 Facets are Reusable and Composable. A deployed facet can be used by any number of diamonds.
 
 Different combinations of facets can be used with different diamonds.
@@ -48,22 +51,22 @@ A facet can declare state variables in structs. Each struct is given a specific 
 
 ## Getting Started
 The prototype will consist of the following functionality:
-* **Create and Launch** (on-chain) 50 EIP-2535 Diamond Facets that contain commonly used, battle tested functions that would be useful for creating a prototype.
-* **Test** facets with the [Bugout Facet Inspector](https://github.com/bugout-dev/inspector-facet)
-* **Store** all functions, used in the facets, in a data store that is friendly to recommendation engines.
-* **Store** additional metadata required for contract assembly and correlate with stored functions.
-* **Pre-assemble** a small number of contracts that can be used for common use cases and make them searchable.
-* **Create** basic platform with rest / graphql api endpoints using the G7 Microservice Platform Boilerplate
-* **Tie** api endpoints into models and generate needed queries
-* **Create** a super simple UI/UX that allows:
-  * Build ability to search for exiting contracts based on use case query. _(list query)_
-  * Build ability to select a contract from the search results. _(profile query)_
-  * Once selected, build ability to display a single contact and it's analytics. 
-  * From the single contract display, build ability to query additional functions. _(list query)_
-  * From the single contract display, build ability to select a function and add it to the contract. _(profile query)_
-  * Build the ability to create a blank contract and build the ability to add functions to it using above functionality.
-  * Build ability to test the contract locally using [Bugout Facet Inspector](https://github.com/bugout-dev/inspector-facet). Add slither as additional testing option.
-  * Build ability to launch the contract into a testnet and run the tests again.
+* **50 (on-chain) EIP-2535 Diamond Facets** that contain commonly used, battle tested functions that would be useful for creating a prototype.
+* **Testing Suite** for facets. Incorporate the [Bugout Facet Inspector](https://github.com/bugout-dev/inspector-facet) and Slither.
+* **Storage Mechanism** for all functions that are used in the facets. Store should be a data store that is friendly to recommendation engines.
+* **Storage Mechanism** for additional metadata required for contract assembly. Correlate metadata with stored functions.
+* **Pre-assembled** smart contracts that can be used for common use cases. Make them searchable.
+* **Basic platform** with rest / graphql api endpoints using the G7 Microservice Platform Boilerplate
+* **Api endpoints** that are needed to generate the required payloads.
+* **Super simple UI/UX** that provides:
+  * Ability to search for exiting contracts based on use case query. _(list query)_
+  * Ability to select a contract from the search results. _(profile query)_
+  * Once selected, ability to display a single contact and it's analytics. 
+  * From the single contract display, ability to query additional functions. _(list query)_
+  * From the single contract display, ability to select a function and add it to the contract. _(profile query)_
+  * Ability to create a blank contract and the ability to add functions to it using above functionality.
+  * Ability to test the contract locally using [Bugout Facet Inspector](https://github.com/bugout-dev/inspector-facet). Add slither as additional testing option.
+  * Ability to launch the contract into a testnet and run the tests again.
 
 ### Diamond Blueprinter Roadmap
 
