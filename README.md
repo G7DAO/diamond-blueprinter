@@ -1,7 +1,7 @@
 # DIAMOND BLUEPRINTER
 
-EVM Compatible Smart Contract Creator that uses Audited On-Chain EIP-2535: Diamonds, Multi-Facet Proxy
-Smart Contract Facets as blueprints that developers can use to build your own EIP-2535 Smart Contracts.  
+EVM Compatible Smart Contract Creator that uses Audited On-Chain EIP-2535 
+Smart Contract Facets as blueprints that developers can use to build EIP-2535 Smart Contracts.  
 
 [EIP-2535: Diamonds, Multi-Facet Proxy](https://eips.ethereum.org/EIPS/eip-2535)
 
@@ -67,6 +67,34 @@ The prototype will consist of the following functionality:
   * Ability to create a blank contract and the ability to add functions to it using above functionality.
   * Ability to test the contract locally using [Bugout Facet Inspector](https://github.com/bugout-dev/inspector-facet). Add slither as additional testing option.
   * Ability to launch the contract into a testnet and run the tests again.
+
+## FAQ
+**Who will use this?**
+* Smart Contractor developers who are looking for boilerplate EVM compatible contracts.
+* Smart Contractor developers who are looking for upgradeable, extensible EVM compatible contracts. 
+* Smart Contractor developers who are looking for a secure way to develop EVM compatible contracts.
+* Smart Contractor developers who are looking for an easy way to build EVM compatible contracts.
+* Smart Contractor developers who are looking for an easy way to learn EIP-2535 Diamond contracts.
+* Game developers who are looking for an extensible contracts that can grow with their game.
+ 
+**What problem does this really solve?**
+* **A single address for unlimited contract functionality.** Using a single address for contract functionality makes deployment, testing and integration with other smart contracts, software and user interfaces easier.
+* **Your contract exceeds the 24KB maximum contract size.** You may have related functionality that it makes sense to keep in a single contract, or at a single contract address. A diamond does not have a max contract size.
+* **A diamond provides a way to organize contract code and data.** You may want to build a contract system with a lot of functionality. A diamond provides a systematic way to isolate different functionality and connect them together and share data between them as needed in a gas-efficient way.
+* **A diamond provides a way to upgrade functionality.** Upgradeable diamonds can be upgraded to add/replace/remove functionality. Because diamonds have no max contract size, there is no limit to the amount of functionality that can be added to diamonds over time. Diamonds can be upgradeable or immutable. It is also possible to make an upgradeable diamond and then at a later time remove its upgrade capability.
+* **Automated assembly, testing and launching of EIP-2535 Diamond Contracts**
+* **A library of existing, audited, on-chain, EIP-2535 Diamonds Facets**
+
+**Is this just another walled garden designed to monetize something that's freely available?**
+* **No.** The entire platform is open sourced. 
+* **No.** The list of available facets and the functions that are included in them is freely available.
+
+**Ok.. then how do you make money?**
+* We have hosted the exact system that's freely available in this repo and added a super snazzy user interface to it. We charge a fee to use our interface.
+* We have received grants to help us audit our contracts. 
+
+**How do I know the contracts are secure?**
+* Look at the metadata for each contract in the database. We add audit details and contract analytics in the contract metadata.
 
 ### Diamond Blueprinter Roadmap
 
