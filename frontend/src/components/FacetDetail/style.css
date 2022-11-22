@@ -1,0 +1,43 @@
+.facetDetailContainer {
+  display: flex;
+  justify-content: center;
+}
+.facetDetail {
+  max-width: 900px;
+  margin: 60px 0 200px;
+  min-width: 700px;
+}
+.facetTitle {
+  font-size: 26px;
+  margin: 10px 0 12px;
+}
+.facetDetailHeading {
+  margin-bottom: 20px;
+}
+.facetAddr {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.selectorsList {
+  padding: 20px 20px;
+  border-radius: var(--border-radius);
+  border: solid 1px var(--border-black);
+}
+.functionName {
+  margin-bottom: 5px;
+}
+.selectorsRow {
+  border-bottom: solid 1px var(--border-black);
+  margin: 4px 0 6px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.selectorName {
+  font-size: 14px;
+}
+@media only  screen and (max-width: 768px) {
+  .facetDetail {
+    width: 100%;
+  }
+}

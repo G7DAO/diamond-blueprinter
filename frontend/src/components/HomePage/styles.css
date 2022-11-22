@@ -1,0 +1,79 @@
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 60px 100px;
+}
+.leaderboardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+.aboveFieldText{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: var(--font-color);
+}
+
+.inputField2{
+    height: 64px;
+    background: var(--background-color);
+    border: 2px solid var(--border-black);
+    border-radius: 12px;
+}
+
+.aboveFieldText2{
+    width: 323px;
+    height: 49px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    color: var(--font-color);
+}
+
+.boxText {
+    width: 323px;
+    height: 49px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--font-color);
+}
+
+.boxTopContent{
+    display: flex;
+    justify-content: space-around;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+    .homeContainer {
+        flex-direction: column;
+        margin: 40px 16px;
+    }
+    .leaderboardContainer {
+        width: 100%;
+    }
+    .searchContainer {
+        width: auto;
+    }
+}

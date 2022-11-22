@@ -1,0 +1,30 @@
+
+.facetsHistoryContainer {
+  width: 50%;
+  padding: 4px 10px;
+}
+.facetList {
+  width: 100%;
+}
+.historytTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.historytRow {
+  border-top: solid 1px var(--border-black);
+  padding: 10px 14px;
+
+}
+.historyTimestamp {
+  font-size: 12px;
+}
+.historyFuncName {
+  font-size: 16px;
+  margin-top: 4px;
+}
+@media only  screen and (max-width: 768px) {
+  .facetsHistoryContainer {
+      width: 100%;
+  }
+}

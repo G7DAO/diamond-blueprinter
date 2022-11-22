@@ -1,0 +1,43 @@
+
+.tableHeader1 {
+  width: 70%;
+}
+.tableHeader2 {
+  width: 30%;
+}
+.tableHeader {
+  padding: 12px;
+  border-bottom: solid 2px var(--border-black);
+}
+.tableHeaderContainer {
+  background-color: var(--bg-gray);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  display: flex;
+}
+.facetsTable {
+  min-height: 400px;
+  background: var(--background-color);
+  border: 2px solid var(--border-black);
+  border-radius: var(--border-radius);
+  margin: 0 40px;
+}
+.facetTableRow {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  border-bottom: solid 1px var(--border-black);
+  padding: 5px 8px;
+  color: var(--font-color);
+}
+.row70 {
+  width: 70%;
+}
+.row30 {
+  width: 30%;
+}
+@media only screen and (max-width: 768px) {
+    .facetsTable {
+        margin: 10px 0px;
+    }
+}
