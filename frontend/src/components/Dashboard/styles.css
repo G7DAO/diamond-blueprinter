@@ -1,0 +1,58 @@
+
+.titleDashboard {
+    width: 670px;
+    height: 100px;
+    left: 70px;
+    top: 135px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.labelDashboard {
+    width: 323px;
+    height: 49px;
+    left: 382px;
+    top: 136px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+.dashboardContainer {
+    max-width: 1200px;
+    margin: 20px auto 60px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+.dashboardInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addressLabel {
+    font-size: 28px;
+}
+.addressInput {
+    min-width: 600px;
+}
+.dashbaordBodyContainer {
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+}
+@media only  screen and (max-width: 768px) {
+    .facetsListContainer {
+        width: 100%;
+    }
+    .addressInput {
+        width: 80%;
+        min-width: auto;
+    }
+}

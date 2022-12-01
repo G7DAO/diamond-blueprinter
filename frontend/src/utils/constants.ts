@@ -1,0 +1,1 @@
+export const API_URL = 'https://shark-app-ciezx.ondigitalocean.app'

@@ -1,0 +1,56 @@
+.headerContent {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-blue);
+    border-radius: 12px;
+    padding: 6px 8px;
+}
+.headerRight {
+    display: flex;
+    margin-right: 20px;
+}
+.headerLeft {
+    display: flex;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerButton {
+    border-radius: 12px;
+    border: 1px solid var(--border-black);
+    background-color: transparent;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 12px;
+    padding: 6px 12px;
+    color: var(--font-color);
+}
+
+.headerLogo {
+    width: 32px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.headerTitle{
+    font-size: 24px;
+    line-height: 26px;
+    margin-right: 12px;
+}
+.headerEthText {
+    display: flex ;
+    justify-content: flex-start;
+    font-size: 14px;
+    max-width: 180px;
+    padding: 6px 8px;
+}
+.headerContent {
+    margin: 14px;
+}
+@media only screen and (max-width: 768px) {
+    .headerContent {
+        flex-direction: column;
+    }
+}
