@@ -6,6 +6,10 @@
   "repository": "git@github.com:chainhackers/diamond-blueprinter.git",
   "author": "Evgenii Tsvigun <utgarda@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test"
+  },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",
     "@ethersproject/providers": "^5.4.7",
