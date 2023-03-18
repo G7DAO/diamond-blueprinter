@@ -28,6 +28,47 @@ describe('DiamondTest', async function () {
     ownershipFacet = await ethers.getContractAt('OwnershipFacet', diamondAddress)
   })
 
+  it('should deploy and cut custom facet', async () => {
+    // Deploy facets and set the `facetCuts` variable
+    console.log("");
+    console.log("Deploying facets");
+    const FacetNames = ["BackpackSystem"];
+
+    // The `facetCuts` variable is the FacetCut[] that contains the functions to add during diamond deployment
+    const facetCuts = [];
+    for (const FacetName of FacetNames) {
+      const Facet = await ethers.getContractFactory(FacetName);
+      const facet = await Facet.deploy();
+      await facet.deployed();
+      console.log(`${FacetName} deployed: ${facet.address}`);
+      facetCuts.push({
+        facetAddress: facet.address,
+        action: FacetCutAction.Add,
+        functionSelectors: getSelectors(facet),
+      });
+    }
+
+    console.log({ facetCuts });
+
+    tx = await diamondCutFacet.diamondCut(
+      facetCuts,
+      ethers.constants.AddressZero,
+      "0x",
+      { gasLimit: 800000 }
+    );
+    receipt = await tx.wait();
+    if (!receipt.status) {
+      throw Error(`Diamond upgrade failed: ${tx.hash}`);
+    }
+
+    result = await diamondLoupeFacet.facetFunctionSelectors(
+      facetCuts[0].facetAddress
+    );
+    
+    console.log({result})
+    
+  })
+
   it('should have three facets -- call to facetAddresses function', async () => {
     for (const address of await diamondLoupeFacet.facetAddresses()) {
       addresses.push(address)
