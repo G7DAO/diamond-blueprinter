@@ -1,0 +1,36 @@
+.container {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  height: 10rem;
+  .content {
+    width: 100rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    .logo {
+      display: flex;
+      height: 8rem;
+      img {
+        height: 100%;
+      }
+      .title {
+        padding: 1rem 3rem;
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 3.2rem;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #186faf;
+        max-width: 20rem;
+      }
+    }
+    .connect {
+      height: 5rem;
+    }
+  }
+}
