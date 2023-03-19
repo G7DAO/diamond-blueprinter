@@ -1,12 +1,10 @@
-import {HardhatUserConfig} from "hardhat/config";
+import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
-
+import "xdeployer";
 require('dotenv').config();
-//require("@nomiclabs/hardhat-ethers");
-//require("@nomiclabs/hardhat-etherscan");
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.18",
+    solidity: "0.8.19",
     networks: {
         polygon: {
             url: process.env.ALCHEMY_URL,
@@ -14,7 +12,16 @@ const config: HardhatUserConfig = {
                 mnemonic: process.env.MNEMONIC_MAINNET,
             },
         },
-    }
+    },
+    xdeploy: {
+        contract: "Kimberlite",
+        constructorArgsPath: undefined, //"./scripts/kimpberlite-deploy-args.ts",
+        salt: "Kimberlite_1.0",
+        signer: process.env.DEPLOY_PRIVATE_KEY,
+        networks: ["hardhat", "polygon"],
+        rpcUrls: ["hardhat", process.env.ALCHEMY_URL],
+        gasLimit: undefined,
+    },
 };
 
 export default config;
