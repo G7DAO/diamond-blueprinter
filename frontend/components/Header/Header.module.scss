@@ -4,8 +4,9 @@
   width: 100%;
   top: 0;
   height: 10rem;
+  z-index: 5000;
   .content {
-    width: 100rem;
+    max-width: 100rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -31,6 +32,24 @@
     }
     .connect {
       height: 5rem;
+    }
+
+    @media screen and (max-width: 425px) {
+      & > * {
+        margin: 1rem;
+      }
+      .logo {
+        height: 4rem;
+        .title {
+          font-size: 1.8rem;
+          line-height: 1.8rem;
+
+          max-width: unset;
+        }
+      }
+      .connect {
+        height: 4rem;
+      }
     }
   }
 }

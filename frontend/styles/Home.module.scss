@@ -6,4 +6,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+
+  .error {
+    font-family: monospace;
+    position: absolute;
+    top: 25%;
+    color: red;
+    font-weight: 700;
+    max-width: 75%;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    word-break: break-all;
+    .h3 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+    .errorMessage {
+      @media screen and (max-width: 768px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .deployButton {
+    position: relative;
+    top: 0;
+    &.error {
+      @media screen and (max-width: 450px) {
+        top: 25%;
+      }
+    }
+  }
 }

@@ -3,10 +3,47 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.scss';
 import { DeployButton } from '@/components';
-
+import { ContractReceipt, ContractTransaction, ethers } from 'ethers';
+import { fetchSigner } from '@wagmi/core';
+import abi from './../abi.json';
+import { useState } from 'react';
+import cn from 'classnames';
+import { useRouter } from 'next/router';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const [deploying, setDeploying] = useState<boolean>(false);
+  const [deployingError, setDeployingError] = useState<Error | null>(null);
+  // ≥sole.log(contract);
+
+  const router = useRouter();
+  const deployButtonHandler: React.MouseEventHandler = async () => {
+    try {
+      setDeploying(true);
+      setDeployingError(null);
+      const signer = await fetchSigner();
+
+      const contract = new ethers.Contract(
+        '0x88c875606ae309172F89F231dF5A9Ffb5AD64994',
+        abi,
+        signer!,
+      );
+      const transaction: ContractTransaction = await contract.extractDiamond();
+      const receipt: ContractReceipt = await transaction.wait();
+      if (receipt.status === 1)
+        router.push(`/page1?contract=${'0x88c875606ae309172f89f231df5a9ffb5ad64994'}`);
+    } catch (error) {
+      console.log(error);
+      if (error instanceof Error) {
+        setDeployingError(error);
+        return;
+      }
+      setDeployingError(new Error(String(error)));
+    } finally {
+      setDeploying(false);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -16,7 +53,15 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <DeployButton />
+        <div className={cn(styles.deployButton, deployingError ? styles.error : null)}>
+          <DeployButton onClick={deployButtonHandler} deploying={deploying} />
+        </div>
+        {deployingError && (
+          <div className={styles.error}>
+            <h3 className={styles.h3}>Error!</h3>
+            <div className={styles.errorMessage}>{deployingError.message}</div>
+          </div>
+        )}
       </main>
     </>
   );
