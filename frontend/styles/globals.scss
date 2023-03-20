@@ -1,3 +1,8 @@
+:root {
+  --diamond-blue: #186faf;
+  --darker-diamond-blue: #205276;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,6 +13,10 @@ html {
   color-scheme: light !important;
   font-size: 62.5%;
   font-family: sans-serif;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 56.25%;
+  }
 
   @media screen and (max-width: 768px) {
     font-size: 50%;
@@ -23,6 +32,23 @@ body {
   min-height: 100vh;
 }
 
+body {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
 a {
   text-decoration: none;
+
+  &:visited {
+    color: var(--diamond-blue);
+  }
+
+  &:active {
+    color: var(--darker-diamond-blue);
+  }
+}
+
+ul {
+  list-style: none;
 }
