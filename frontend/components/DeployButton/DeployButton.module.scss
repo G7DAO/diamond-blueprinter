@@ -1,20 +1,71 @@
 .container {
   background-color: white;
-  width: 30rem;
-  height: 20rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .button {
     background-color: white;
+    position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
-    border: 2px solid black;
+    border-radius: 16px;
+    border: 1px solid var(--lightest-diamond-blue);
     font-size: 3rem;
+    font-weight: 500;
     padding: 2rem 1rem;
     cursor: pointer;
+    color: var(--diamond-blue-1);
+    overflow: hidden;
+    transition: all 1.3s;
+
+    .title {
+      position: relative;
+      display: inline-block;
+      transition: all 1.3s;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: url(../../public/images/grad-1.webp);
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.3s;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .diamond {
+      transition: 0.3s;
+    }
+    &:hover {
+      &.error {
+        border: 1px solid red;
+        .background {
+          opacity: 0;
+          transition: all 0.3s;
+        }
+      }
+
+      .diamond {
+        color: white;
+        transition: 0.3s;
+      }
+      .background {
+        opacity: 1;
+        transition: all 0.3s;
+      }
+    }
 
     &:disabled {
       cursor: not-allowed;

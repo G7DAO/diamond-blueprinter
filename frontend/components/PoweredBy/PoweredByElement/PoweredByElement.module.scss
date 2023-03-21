@@ -1,0 +1,21 @@
+.container {
+  padding: 1rem;
+  width: 13rem;
+  .image {
+    width: 8rem;
+    margin: auto;
+
+    border-radius: 15px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+}

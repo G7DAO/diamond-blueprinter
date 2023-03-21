@@ -13,11 +13,7 @@ export const Header: React.FC<IHeaderProps> = () => {
           <Link href='/'>
             <img src='/images/logo.png' alt='logo' />
           </Link>
-          <Link href='/'>
-            <div className={styles.title}>DIAMOND BluePrinter</div>
-          </Link>
         </div>
-        <Navigation />
         <div className={styles.connect}>
           <ConnectButton />
         </div>

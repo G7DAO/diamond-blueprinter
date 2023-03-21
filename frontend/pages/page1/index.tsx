@@ -17,7 +17,7 @@ export default function Page1() {
       </Head>
       <main className={styles.main}>
         <h1>Contract: {contract} </h1>
-        <p>And some another new stuff...</p>
+        <p>And some other new stuff...</p>
       </main>
     </>
   );

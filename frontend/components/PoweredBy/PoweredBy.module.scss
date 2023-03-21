@@ -1,0 +1,15 @@
+.container {
+  text-align: center;
+
+  .h5 {
+    color: var(--diamond-blue-1);
+  }
+
+  .elements {
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
