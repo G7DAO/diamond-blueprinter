@@ -1,7 +1,9 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+require("@nomiclabs/hardhat-etherscan");
 import "xdeployer";
 require('dotenv').config();
+
 
 const config: HardhatUserConfig = {
     solidity: "0.8.19",
@@ -12,6 +14,9 @@ const config: HardhatUserConfig = {
                 mnemonic: process.env.MNEMONIC_MAINNET,
             },
         },
+    },
+    etherscan: {
+        apiKey: process.env.POLYGONSCAN_API_KEY,
     },
     xdeploy: {
         contract: "Kimberlite",
