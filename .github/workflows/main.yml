@@ -10,8 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-        ALCHEMY_URL: ${{ secrets.KNOWN_URL }}
-        MNEMONIC_MAINNET: ${{ secrets.KNOWN_MNEMO }}
+        ALCHEMY_URL: ${{ secrets.ALCHEMY_URL }}
+        MNEMONIC_MAINNET: ${{ secrets.MNEMONIC }}
     defaults:
       run:
         shell: bash
