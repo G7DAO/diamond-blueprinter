@@ -1,0 +1,59 @@
+.container {
+  background-color: aqua;
+  background-color: #efefef;
+  border-radius: 16px;
+  display: flex;
+  padding: 1rem;
+  position: relative;
+
+  .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    // width: 9.6rem;
+    font-size: 9.6rem;
+    line-height: 9.6rem;
+    // background-color: rebeccapurple;
+    padding: 1.6rem;
+    @media screen and (max-width: 768px) {
+      font-size: 5.6rem;
+    }
+
+    @media screen and (max-width: 425px) {
+      position: absolute;
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      padding: 1rem 0;
+    }
+
+    // top: 0;
+  }
+
+  .contains {
+    flex: 1;
+
+    .title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 3.2rem;
+      line-height: 3.2rem;
+      color: var(--darkest-blue);
+      padding: 0.6rem 1.2rem;
+      @media screen and (max-width: 425px) {
+        padding-left: 4rem;
+      }
+    }
+
+    .facets {
+      // background-color: aquamarine;
+      border-radius: 16px;
+      display: flex;
+      flex-wrap: wrap;
+
+      & > div {
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

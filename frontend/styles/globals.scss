@@ -3,12 +3,14 @@
   --diamond-blue: #186faf;
   --diamond-blue-1: #20609b;
   --diamond-sky-blue: #598CF4;
+  --diamond-sea-blue: #2680C2;
+
   --darker-diamond-blue: #003e6b;
   --lighter-diamond-blue: #829ab1;
   --lighter-diamond-blue-1: #486581
   --lighter-diamond-blue-1: #627D98;
   --lightest-diamond-blue: #dceefb;
-  
+  --darkest-blue: #102A43;
 }
 
 * {
@@ -61,16 +63,16 @@ h1 {
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 500;
-  line-height: 40px;
-  letter-spacing: 0em;
+  line-height: 4rem;
+  letter-spacing: 0;
 }
 h5 {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0em;
+  line-height: 2.4rem;
+  letter-spacing: 0;
 }
 
 p {

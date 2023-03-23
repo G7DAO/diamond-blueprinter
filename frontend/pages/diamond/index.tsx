@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import styles from '@/styles/Diamond.module.scss';
+import styles from '@/styles/DiamondPage.module.scss';
 import { Diamond, Facets, Storages } from '@/components';
 import { IStoragaData } from '@/types';
 export default function Page1() {
@@ -19,7 +19,7 @@ export default function Page1() {
     {
       logo: '🧭',
       name: 'Smashcraft.Worldmap.Storage',
-      description: '💠 Simple(Movement)',
+      // description: '💠 Simple(Movement)',
     },
     {
       logo: '📦',
@@ -37,8 +37,8 @@ export default function Page1() {
       </Head>
       <main className={styles.main}>
         <Storages storages={storages} />
-        <Facets />
         <Diamond />
+        <Facets />
       </main>
     </>
   );
