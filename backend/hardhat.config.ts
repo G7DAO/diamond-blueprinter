@@ -6,7 +6,14 @@ require('dotenv').config();
 //require("@nomiclabs/hardhat-etherscan");
 
 const config: HardhatUserConfig = {
-    solidity: "0.8.18",
+    solidity: {
+        version: "0.8.19",
+        settings: {
+            optimizer: {
+                enabled: true
+            },
+        }
+    },
     networks: {
         polygon: {
             url: process.env.ALCHEMY_URL,
