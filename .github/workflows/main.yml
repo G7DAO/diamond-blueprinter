@@ -39,4 +39,4 @@ jobs:
         id: artifacts-restore
         uses: actions/download-artifact@v3
         with:
-          name: ${{github.run_id}}-compile
+          name: ${{github.run_id}}-artifacts
