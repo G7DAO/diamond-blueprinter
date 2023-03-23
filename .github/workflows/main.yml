@@ -9,33 +9,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: backend
     steps:
       - uses: actions/checkout@v3
-      # - name: goto backend
-      #   run: cd backend
       - uses: actions/setup-node@v3
-        working-directory: ./backend
         with:
           node-version: 16
 #          cache: 'yarn'
       - name: Install dependencies
-        working-directory: ./backend
         run: yarn install
       - name: Compile
-        working-directory: ./backend
         run: yarn compile
       - name: Test
-        working-directory: ./backend
         run: yarn test
       - name: Save Compile Artifacts
-        working-directory: ./backend
         id: artifacts-save
         uses: actions/upload-artifact@v3
         with:
-          path: artifacts
+          path: ./backend/artifacts
           name: ${{github.run_id}}-artifacts
       - name: Restore Compile Artifacts
-        working-directory: ./backend
         id: artifacts-restore
         uses: actions/download-artifact@v3
         with:
