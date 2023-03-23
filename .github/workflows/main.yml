@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: goto backend
+        run: cd backend
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'yarn'
-      - name: goto backend
-        run: cd backend
       - name: Install dependencies
         run: yarn install
       - name: Compile
