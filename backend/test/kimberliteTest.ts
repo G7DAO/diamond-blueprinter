@@ -1,13 +1,14 @@
-import {BaseContract} from "ethers";
+import { DiamondLoupeFacet, Kimberlite } from "../typechain-types";
+import { ethers } from "hardhat";
 
 const {deployKimberlite} = require('../scripts/deploy.ts')
 
 const {assert} = require('chai')
 
 describe('KimerliteTest', async function () {
-    let kimberlite: BaseContract
-    let diamondAddress
-    let diamondLoupeFacet: BaseContract
+    let kimberlite: Kimberlite
+    let diamondAddress: string
+    let diamondLoupeFacet: DiamondLoupeFacet
 
     const addresses = []
 
@@ -19,7 +20,7 @@ describe('KimerliteTest', async function () {
             console.log("Extracting diamond")
             const tx = await kimberlite.extractDiamond({gasLimit: 800000});
             const receipt = await tx.wait()
-            diamondAddress = receipt.events[2].args.diamond
+            diamondAddress = receipt.events![2].args!.diamond
         }
     )
 
@@ -29,7 +30,6 @@ describe('KimerliteTest', async function () {
         for (const address of await diamondLoupeFacet.facetAddresses()) {
             addresses.push(address)
         }
-
         assert.equal(addresses.length, 3)
     })
 })
