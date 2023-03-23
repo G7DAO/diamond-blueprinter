@@ -9,10 +9,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+        ALCHEMY_URL: ${{ secrets.KNOWN_URL }}
+        MNEMONIC_MAINNET: ${{ secrets.KNOWN_MNEMO }}
     defaults:
       run:
         shell: bash
         working-directory: backend
+      
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
