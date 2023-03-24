@@ -13,5 +13,17 @@ export interface IFacetGroup {
 export interface IFacet {
   name: string;
   address: string;
-  methods: { name: string; color: string }[];
+  methods: IMethod[];
+}
+
+export interface IMethod {
+  name: string;
+  color: string;
+}
+
+export interface IPickedElement {
+  groupName: string | null;
+  name: string | null;
+  address: string;
+  methods: IMethod[];
 }

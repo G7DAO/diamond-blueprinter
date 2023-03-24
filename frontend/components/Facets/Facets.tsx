@@ -24,7 +24,6 @@ export const Facets: React.FC<IFacetsProps> = () => {
           methods: [
             { name: 'method1', color: 'red' },
             { name: 'method2', color: 'blue' },
-            { name: 'method3', color: 'green' },
           ],
         },
         {

@@ -9,9 +9,9 @@
 
   display: grid;
   grid-template-columns: 2fr 3fr;
+  column-gap: 5rem;
 
   & > div:first-child {
-    // background-color: aquamarine;
     grid-column: 1 / -1;
   }
 
