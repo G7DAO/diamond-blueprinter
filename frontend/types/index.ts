@@ -11,9 +11,10 @@ export interface IFacetGroup {
 }
 
 export interface IFacet {
-  name: string;
+  name: string | null;
   address: string;
   methods: IMethod[];
+  storages?: IStoragaData[];
 }
 
 export interface IMethod {

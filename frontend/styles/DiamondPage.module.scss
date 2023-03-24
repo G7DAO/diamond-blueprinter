@@ -7,39 +7,41 @@
 
   padding-top: 20rem;
 
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  column-gap: 5rem;
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    column-gap: 5rem;
 
-  & > div:first-child {
-    grid-column: 1 / -1;
-  }
-
-  @media screen and (max-width: 768px) {
-    padding: 10rem;
-    padding-top: 14rem;
-
-    & > div {
+    & > div:first-child {
       grid-column: 1 / -1;
     }
 
-    & > div:last-child {
-      // grid-column: 1 / -1;
-      grid-row: 2 / 2;
-    }
-  }
-  @media screen and (max-width: 600px) {
-    padding: 4rem;
-    padding-top: 14rem;
-  }
+    @media screen and (max-width: 768px) {
+      padding: 10rem;
+      padding-top: 14rem;
 
-  @media screen and (max-width: 425px) {
-    padding: 2rem;
-    padding-top: 13rem;
-  }
-  @media screen and (max-width: 365px) {
-    padding: 0.5rem;
-    padding-top: 10rem;
+      & > div {
+        grid-column: 1 / -1;
+      }
+
+      & > div:last-child {
+        // grid-column: 1 / -1;
+        grid-row: 2 / 2;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      padding: 4rem;
+      padding-top: 14rem;
+    }
+
+    @media screen and (max-width: 425px) {
+      padding: 2rem;
+      padding-top: 13rem;
+    }
+    @media screen and (max-width: 365px) {
+      padding: 0.5rem;
+      padding-top: 10rem;
+    }
   }
 
   h1 {
