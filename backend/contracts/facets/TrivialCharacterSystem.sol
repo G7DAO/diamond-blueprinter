@@ -5,7 +5,7 @@ import "../interfaces/sample-facets/ICharactersSystem.sol";
 
 library CharacterStorage {
 
-    bytes32 constant DIAMOND_STORAGE_POSITION = keccak256("diamond.standard.test.storage");
+    bytes32 constant DIAMOND_STORAGE_POSITION = keccak256("smashcraft.character.storage");
 
     struct AliveState {
         mapping(uint256 => bool) alive;
@@ -22,13 +22,20 @@ library CharacterStorage {
         AliveState storage state = diamondStorage();
         return state.alive[id];
     }
+
+    function _spawn(uint256 id) internal {
+        AliveState storage state = diamondStorage();
+        state.alive[id] = 1;
+    }
 }
 
 contract TrivialCharacterSystem is ICharactersSystem {
     enum Characters {Nobody, Hero}
     uint256 constant HERO_ID = 1;
 
-    function init() external {}
+    function init() external {
+        _spawn(HERO_ID);
+    }
 
 
     function whatIs(uint256 id) external pure returns (uint256 character){
