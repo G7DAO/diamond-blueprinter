@@ -1,12 +1,24 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./TrivialCharacterSystem.sol";
 
-contract SimpleCharactersSystem is TrivialCharacterSystem{
+import "../interfaces/sample-facets/ICharactersSystem.sol";
+import "./CharacterSystemLibrary.sol";
 
-    //TODO add something less trivial than `TrivialCharacterSystem` does
-    function whatIs(uint256 id) external override pure returns (uint256){return 0;}
+contract SimpleCharactersSystem is ICharactersSystem{
 
-    function isAlive(uint256 id) external override pure returns (bool){return false;}
+    //TODO use init() in Typescript in any way possible ( deploy or tests) to enable frontend do it too
+    function init() external {
+        CharacterStorage._spawn(uint256(uint160(msg.sender)));
+    }
+
+
+    function whatIs(uint256 id) external view virtual returns (uint256 character){
+        if (CharacterStorage._isAlive(id))
+            character = id;
+    }
+
+    function isAlive(uint256 id) external view virtual returns (bool){
+        return CharacterStorage._isAlive(id);
+    }
 }
