@@ -12,6 +12,7 @@ export interface IFacetGroup {
 
 export interface IFacet {
   name: string | null;
+  group: string | null;
   address: string;
   methods: IMethod[];
   storages?: IStoragaData[];
@@ -27,4 +28,8 @@ export interface IPickedElement {
   name: string | null;
   address: string;
   methods: IMethod[];
+}
+
+export interface IPopupData {
+  facet: IFacet;
 }

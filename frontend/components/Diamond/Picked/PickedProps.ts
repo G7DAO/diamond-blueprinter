@@ -1,5 +1,6 @@
-import { IPickedElement } from '@/types';
+import { IPickedElement, IFacet } from '@/types';
 
-export interface IPickedProps extends IPickedElement {
+export interface IPickedProps extends IFacet {
   children?: React.ReactNode;
+  onClick: React.MouseEventHandler;
 }
