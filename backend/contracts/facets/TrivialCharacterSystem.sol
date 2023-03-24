@@ -35,16 +35,16 @@ contract TrivialCharacterSystem is ICharactersSystem {
 
     //TODO use init() in Typescript in any way possible ( deploy or tests) to enable frontend do it too
     function init() external {
-        _spawn(HERO_ID);
+        CharacterStorage._spawn(HERO_ID);
     }
 
 
-    function whatIs(uint256 id) external pure returns (uint256 character){
+    function whatIs(uint256 id) external pure virtual returns (uint256 character){
         if (id == HERO_ID)
             character = uint256(Characters.Hero);
     }
 
-    function isAlive(uint256 id) external view returns (bool){
+    function isAlive(uint256 id) external view virtual returns (bool){
         return CharacterStorage._isAlive(id);
     }
 }
