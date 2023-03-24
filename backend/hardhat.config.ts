@@ -27,7 +27,7 @@ const config: HardhatUserConfig = {
     },
     xdeploy: {
         contract: "Kimberlite",
-        constructorArgsPath: undefined, //"./scripts/kimpberlite-deploy-args.ts",
+        constructorArgsPath: undefined,
         salt: "Kimberlite_1.0",
         signer: process.env.DEPLOY_PRIVATE_KEY,
         networks: ["hardhat", "polygon"],
