@@ -2,6 +2,7 @@ import { ethers } from "hardhat";
 import { BaseContract } from "ethers";
 import fs from 'fs/promises';
 
+
 // this constants are used to describe metadata
 // ATTN! Please change them before running deploy script
 const GROUP = "Characters"
