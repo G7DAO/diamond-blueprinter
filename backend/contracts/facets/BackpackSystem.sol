@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: CC0-1.0
 pragma solidity ^0.8.0;
 
-import "../interfaces/sample-facets/IBackupSystem.sol";
+import "../interfaces/sample-facets/IBackpackSystem.sol";
 
 /**
     @notice simple backpack - a set of items, each item is either present or not
     */
-contract BackpackSystem is IBackupSystem {
+contract BackpackSystem is IBackpackSystem {
     bytes32 constant DIAMOND_STORAGE_POSITION = keccak256("backpack.storage");
 
     struct BackpackState {
