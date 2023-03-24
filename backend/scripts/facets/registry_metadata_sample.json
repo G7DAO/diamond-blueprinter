@@ -1,0 +1,9 @@
+{
+    "address": "0xFB7c3E25D60708d9283f5f036a8b6eED16D386e4",
+    "explorer_url" : "https://polygonscan.com/address/0xFB7c3E25D60708d9283f5f036a8b6eED16D386e4#code",
+    "storage_slots": {
+        "character.storage": "struct AliveState {\n    mapping(uint256 => bool) alive;\n}"
+    },
+    "name": "TrivialCharacterSystem",
+    "group": "Characters"
+}

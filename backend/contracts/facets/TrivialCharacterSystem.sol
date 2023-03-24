@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "../interfaces/sample-facets/ICharactersSystem.sol";
+
+library CharacterStorage {
+
+    bytes32 constant DIAMOND_STORAGE_POSITION = keccak256("diamond.standard.test.storage");
+
+    struct AliveState {
+        mapping(uint256 => bool) alive;
+    }
+
+    function diamondStorage() internal pure returns (AliveState storage ds) {
+        bytes32 position = DIAMOND_STORAGE_POSITION;
+        assembly {
+            ds.slot := position
+        }
+    }
+
+    function _isAlive(uint256 id) internal view returns (bool){
+        AliveState storage state = diamondStorage();
+        return state.alive[id];
+    }
+}
+
+contract TrivialCharacterSystem is ICharactersSystem {
+    enum Characters {Nobody, Hero}
+    uint256 constant HERO_ID = 1;
+
+    function init() external {}
+
+
+    function whatIs(uint256 id) external pure returns (uint256 character){
+        if (id == HERO_ID)
+            character = uint256(Characters.Hero);
+    }
+
+    function isAlive(uint256 id) external view returns (bool){
+        return CharacterStorage._isAlive(id);
+    }
+}
