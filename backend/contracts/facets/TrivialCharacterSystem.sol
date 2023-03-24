@@ -25,7 +25,7 @@ library CharacterStorage {
 
     function _spawn(uint256 id) internal {
         AliveState storage state = diamondStorage();
-        state.alive[id] = 1;
+        state.alive[id] = true;
     }
 }
 
@@ -33,6 +33,7 @@ contract TrivialCharacterSystem is ICharactersSystem {
     enum Characters {Nobody, Hero}
     uint256 constant HERO_ID = 1;
 
+    //TODO use init() in Typescript in any way possible ( deploy or tests) to enable frontend do it too
     function init() external {
         _spawn(HERO_ID);
     }
