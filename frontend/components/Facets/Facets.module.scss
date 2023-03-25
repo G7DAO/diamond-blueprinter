@@ -1,0 +1,35 @@
+.container {
+  position: relative;
+
+  .heading {
+    padding: 2rem;
+    display: flex;
+    align-items: flex-end;
+    .h2 {
+      font-size: 4rem;
+      line-height: 3rem;
+      font-weight: 500;
+      color: var(--lighter-diamond-blue-1);
+    }
+    .addNew {
+      padding: 0 4rem;
+      color: var(--diamond-sea-blue);
+      font-size: 2rem;
+      line-height: 2rem;
+
+      button {
+        background-color: transparent;
+        border: navajowhite;
+        font-size: inherit;
+        color: inherit;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .facets {
+    & > div {
+      margin-bottom: 1rem;
+    }
+  }
+}

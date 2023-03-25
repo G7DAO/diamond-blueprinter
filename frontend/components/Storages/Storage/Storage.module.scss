@@ -1,0 +1,69 @@
+.container {
+  overflow: hidden;
+  background-color: var(--lightest-diamond-blue);
+  border: 1px solid #bcccdc;
+  border-radius: 16px;
+  padding: 0.5rem 2rem;
+  max-width: 35rem;
+  max-height: 6.2rem;
+  @media screen and (max-width: 768px) {
+    max-width: 49rem;
+    max-height: unset;
+    padding: 1rem 2rem;
+  }
+
+  display: flex;
+  align-items: center;
+
+  & > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    & > *:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  .logo {
+    flex: 0;
+    font-size: 3rem;
+    line-height: 3rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 5rem;
+      line-height: 5rem;
+    }
+  }
+  .contains {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    & > *:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 1rem;
+      & > *:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .name {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      @media screen and (max-width: 768px) {
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+    }
+
+    .description {
+      font-size: 1.8rem;
+      @media screen and (max-width: 768px) {
+        font-size: 2.4rem;
+      }
+    }
+  }
+}

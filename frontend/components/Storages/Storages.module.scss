@@ -1,0 +1,36 @@
+.container {
+  .h2 {
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 500;
+    padding: 2rem;
+    color: var(--lighter-diamond-blue-1);
+  }
+
+  .storages {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: block;
+      max-width: 50rem;
+      padding-bottom: 1rem;
+      & > * {
+        &:last-child {
+          margin-bottom: 0;
+        }
+        margin-right: 0;
+      }
+    }
+    background-color: white;
+    border: 1px solid #bcccdc;
+    border-radius: 16px;
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+}
