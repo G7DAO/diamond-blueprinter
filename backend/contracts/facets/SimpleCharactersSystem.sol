@@ -5,9 +5,8 @@ pragma solidity ^0.8.0;
 import "../interfaces/sample-facets/ICharactersSystem.sol";
 import "./CharactersStorage.sol";
 
-contract SimpleCharactersSystem is ICharactersSystem{
+contract SimpleCharactersSystem is ICharactersSystem {
 
-    //TODO use init() in Typescript in any way possible ( deploy or tests) to enable frontend do it too
     function init() external {
         CharactersStorage._spawn(uint256(uint160(msg.sender)));
     }
