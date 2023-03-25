@@ -7,7 +7,7 @@ import { ContractReceipt, ContractTransaction, ethers } from 'ethers';
 import { fetchSigner } from '@wagmi/core';
 import abi from './../abi.json';
 import { useState } from 'react';
-import cn from 'classnames';
+
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] });

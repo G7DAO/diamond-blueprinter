@@ -1,0 +1,114 @@
+.container {
+  .h2 {
+    font-size: 4rem;
+    line-height: 3rem;
+    font-weight: 500;
+    padding: 2rem;
+    color: var(--lighter-diamond-blue-1);
+  }
+
+  .contains {
+    
+    position: relative;
+
+    .diamonBlock {
+      overflow: hidden;
+      min-height: 53rem;
+      position: relative;
+      border-radius: 16px;
+
+      margin-bottom: 2.4rem;
+      border: 1px solid #bcccdc;
+      padding: 2rem;
+      z-index: 0;
+      .background {
+        background-image: url(../../public/images/grad-1.webp);
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          opacity: 0.8;
+          height: 53rem;
+          width: 54rem;
+
+          transform: translateX(50%);
+        }
+      }
+      .picked {
+        .h3 {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 2.4rem;
+          line-height: 3.2rem;
+          color: black;
+        }
+
+        .pickedElements {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+
+        }
+
+        .empty {
+          position: absolute;
+          bottom: 2rem;
+          width: 45%;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.6rem;
+          line-height: 2.2rem;
+
+          color: #829ab1;
+        }
+      }
+    }
+
+    .cutButton {
+      width: 100%;
+      margin-bottom: 1.2rem;
+      button {
+        border-radius: 16px;
+        background-color: #dceefb;
+        width: 100%;
+        display: inline-block;
+
+        border: none;
+        color: #003e6b;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 3.6rem;
+        padding: 1.7rem;
+        border: 1px solid #bcccdc;
+      }
+    }
+
+    .zipButton {
+      width: 100%;
+      button {
+        border-radius: 16px;
+        width: 100%;
+        display: inline-block;
+        background-color: transparent;
+        border: none;
+        font-style: normal;
+        color: #003e6b;
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 3.6rem;
+        padding: 1.7rem;
+
+        border: 1px solid #bcccdc;
+      }
+    }
+  }
+}

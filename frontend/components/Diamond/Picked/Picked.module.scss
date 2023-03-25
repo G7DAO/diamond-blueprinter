@@ -1,0 +1,56 @@
+.container {
+  background-color: #dceefb;
+  padding: 0.8rem;
+  border-radius: 16px;
+  border: 1px solid #bcccdc;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+
+
+  .groupName {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #0a558c;
+  }
+  .name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+
+  .address {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #0a558c;
+    display: flex;
+    align-items: center;
+
+    .addressIcon {
+      border-radius: 100px;
+      overflow: hidden;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    .addressString {
+      padding: 0.5rem;
+    }
+  }
+
+  .methods {
+    display: flex;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+
+    & > div {
+      padding: 0.2rem;
+    }
+  }
+}

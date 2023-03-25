@@ -1,0 +1,54 @@
+.container {
+
+  background-color: white;
+  border-radius: 16px;
+  padding: 1.2rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  cursor: pointer;
+
+  .name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    color: #003e6b;
+    grid-column: 1 / -1;
+  }
+
+  .address {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: #0a558c;
+    display: flex;
+    align-items: center;
+
+    .addressIcon {
+      border-radius: 100px;
+      overflow: hidden;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    .addressString {
+      padding: 0.5rem;
+    }
+  }
+
+  .methods {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+
+    & > div {
+      margin: 0 0.25rem;
+    }
+    .method {
+      border-radius: 100px;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
