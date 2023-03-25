@@ -12,6 +12,7 @@ jobs:
     env:
         ALCHEMY_URL: ${{ secrets.ALCHEMY_URL }}
         MNEMONIC_MAINNET: ${{ secrets.MNEMONIC }}
+        PRIVATEKEY_MANTLE_TESTNET: ${{ secrets.PRIVATEKEY_MANTLE_TESTNET }}
     defaults:
       run:
         shell: bash
