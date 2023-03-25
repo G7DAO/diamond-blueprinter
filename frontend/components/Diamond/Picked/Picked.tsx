@@ -1,11 +1,13 @@
 import Blockies from 'react-blockies';
 import { IPickedProps } from './PickedProps';
 import styles from './Picked.module.scss';
-export const Picked: React.FC<IPickedProps> = ({ name, address, methods, groupName }) => {
+export const Picked: React.FC<IPickedProps> = ({ name, group, address, methods, onClick }) => {
+  // console.log(methods);
   const trunccatedAddress = address.slice(0, 5) + '...' + address.slice(-4);
   return (
-    <div className={styles.container}>
-      <div className={styles.groupName}>{groupName ? groupName : 'Ungrouped'}</div>
+    <div className={styles.container} onClick={onClick}>
+      <div className={styles.groupName}>{group ? group : 'Ungrouped'}</div>
+
       {name ? (
         <div className={styles.name}>{name}</div>
       ) : (
