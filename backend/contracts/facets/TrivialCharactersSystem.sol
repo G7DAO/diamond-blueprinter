@@ -2,16 +2,16 @@
 pragma solidity ^0.8.0;
 
 import "../interfaces/sample-facets/ICharactersSystem.sol";
-import "./CharacterSystemLibrary.sol";
+import "./CharactersStorage.sol";
 
 
-contract TrivialCharacterSystem is ICharactersSystem {
+contract TrivialCharactersSystem is ICharactersSystem {
     enum Characters {Nobody, Hero}
     uint256 constant HERO_ID = 1;
 
     //TODO use init() in Typescript in any way possible ( deploy or tests) to enable frontend do it too
     function init() external {
-        CharacterStorage._spawn(HERO_ID);
+        CharactersStorage._spawn(HERO_ID);
     }
 
 
@@ -21,6 +21,6 @@ contract TrivialCharacterSystem is ICharactersSystem {
     }
 
     function isAlive(uint256 id) external view virtual returns (bool){
-        return CharacterStorage._isAlive(id);
+        return CharactersStorage._isAlive(id);
     }
 }

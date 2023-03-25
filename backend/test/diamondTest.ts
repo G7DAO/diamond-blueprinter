@@ -1,25 +1,24 @@
 /* global describe it before ethers */
 
-const {
-  getSelectors,
-  FacetCutAction,
-  removeSelectors,
-  findAddressPositionInFacets
-} = require('diamond-1-hardhat/scripts/libraries/diamond.js')
+import { getSelectors, FacetCutAction, removeSelectors, findAddressPositionInFacets } from 'diamond-1-hardhat/scripts/libraries/diamond.js'
 
-const { deployDiamond } = require('diamond-1-hardhat/scripts/deploy.js')
+import { deployDiamond } from 'diamond-1-hardhat/scripts/deploy.js'
 
-const { assert } = require('chai')
+import { assert } from 'chai'
+
+import { ethers } from 'hardhat'
+import { DiamondCutFacet, DiamondLoupeFacet, OwnershipFacet, TrivialCharacterSystem } from '../typechain-types'
+
 
 describe('DiamondTest', async function () {
-  let diamondAddress
-  let diamondCutFacet
-  let diamondLoupeFacet
-  let ownershipFacet
+  let diamondAddress: string
+  let diamondCutFacet: DiamondCutFacet
+  let diamondLoupeFacet: DiamondLoupeFacet
+  let ownershipFacet: OwnershipFacet
   let tx
   let receipt
   let result
-  const addresses = []
+  const addresses: string[] = []
 
   before(async function () {
     diamondAddress = await deployDiamond()
@@ -32,9 +31,10 @@ describe('DiamondTest', async function () {
     for (const address of await diamondLoupeFacet.facetAddresses()) {
       addresses.push(address)
     }
-
     assert.equal(addresses.length, 3)
   })
+
+
 
   it('facets should have the right function selectors -- call to facetFunctionSelectors function', async () => {
     let selectors = getSelectors(diamondCutFacet)
@@ -272,22 +272,49 @@ describe('DiamondTest', async function () {
     console.log({ facetCuts });
 
     tx = await diamondCutFacet.diamondCut(
-            facetCuts,
-            ethers.constants.AddressZero,
-            "0x",
-            { gasLimit: 800000 }
-            );
+      facetCuts,
+      ethers.constants.AddressZero,
+      "0x",
+      { gasLimit: 800000 }
+    );
     receipt = await tx.wait();
     if (!receipt.status) {
       throw Error(`Diamond upgrade failed: ${tx.hash}`);
     }
 
     result = await diamondLoupeFacet.facetFunctionSelectors(
-            facetCuts[0].facetAddress
-            );
+      facetCuts[0].facetAddress
+    );
 
-    console.log({result})
+    console.log({ result })
 
   })
-  
+
+  it('should init storage on cut', async () => {
+    let action = FacetCutAction.Add;
+    for (const FacetName of ["TrivialCharactersSystem", "SimpleCharactersSystem"]) {
+      const Facet = await ethers.getContractFactory(FacetName);
+      const facet = await Facet.deploy();
+      await facet.deployed();
+      console.log(`${FacetName} deployed: ${facet.address}`);
+      const facetCuts = [{
+        facetAddress: facet.address,
+        action,
+        functionSelectors: getSelectors(facet).get(["whatIs(uint256)", "isAlive(uint256 id)"]),
+      }]
+      console.log({ facetCuts });
+      let functionCall = Facet.interface.encodeFunctionData('init');
+      tx = await diamondCutFacet.diamondCut(
+        facetCuts,
+        facet.address,
+        functionCall,
+        { gasLimit: 800000 }
+      );
+      receipt = await tx.wait();
+      if (!receipt.status) {
+        throw Error(`Diamond upgrade failed: ${tx.hash}`);
+      }
+      action = FacetCutAction.Replace;
+    }
+  })
 })

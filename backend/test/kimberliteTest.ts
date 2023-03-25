@@ -32,4 +32,5 @@ describe('KimerliteTest', async function () {
         }
         assert.equal(addresses.length, 3)
     })
+
 })
