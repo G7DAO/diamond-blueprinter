@@ -24,7 +24,7 @@ const config: HardhatUserConfig = {
         mantle_testnet: {
             chainId: 5001,
             url: "https://rpc.testnet.mantle.xyz/",
-            accounts: [ process.env.PRIVATEKEY_MANTLE_TESTNET ],
+            accounts: [ process.env.PRIVATEKEY_MANTLE_TESTNET ?? "undefined" ],
         },
     },
     etherscan: {
