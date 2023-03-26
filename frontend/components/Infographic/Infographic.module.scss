@@ -1,0 +1,346 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/-1;
+  align-self: center;
+  padding-top: 3rem;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 1440px) {
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.title {
+  margin-bottom: 10rem;
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 6rem;
+  line-height: 1;
+  text-align: center;
+  color: #0f609b;
+}
+
+.graphicContainer {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 22rem;
+  height: 110px;
+  background: #ffffff;
+  border: 1px solid #bcccdc;
+  box-shadow: 0px 125px 50px rgba(0, 0, 0, 0.01),
+    0px 70px 42px rgba(0, 0, 0, 0.05), 0px 31px 31px rgba(0, 0, 0, 0.09),
+    0px 8px 17px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+
+  @media (max-width: 1024px) {
+    width: 25rem;
+  }
+
+  @media (max-width: 1024px) {
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    height: 14rem;
+    width: 40rem;
+  }
+
+  .pictureFrame {
+    overflow: hidden;
+    position: absolute;
+    height: 14rem;
+    width: 6.5rem;
+    // outline: 1px solid red;
+    top: -1.5rem;
+    left: 1rem;
+
+    @media (max-width: 768px) {
+      height: 19rem;
+      width: 9rem;
+      top: -4rem;
+    }
+
+    .cardImage {
+      width: 100%;
+    }
+  }
+  .right {
+    padding-top: 33px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 42%;
+  }
+
+  .cardTitle {
+    font-family: 'General Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1;
+    text-align: center;
+    color: #477bca;
+  }
+
+  .cardText {
+    font-family: 'General Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1;
+    text-align: center;
+    color: #477bca;
+  }
+}
+
+.lineContainer {
+  z-index: 2;
+  position: relative;
+  margin-left: -20px;
+  margin-right: -20px;
+  width: 15rem;
+
+  @media (max-width: 1440px) {
+    margin-left: -10px;
+    margin-right: -10px;
+    width: 13rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 15rem;
+    height: 15rem;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    transform: rotate(90deg);
+  }
+
+  .line {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 30px;
+    height: 22px;
+    background: #589bff;
+    display: flex;
+    @media (max-width: 768px) {
+    }
+
+    p {
+      font-family: 'General Sans';
+      text-align: center;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 0.9rem;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .rightDot {
+      top: calc(50% - 5px);
+      right: 5px;
+      position: absolute;
+      content: '';
+      height: 10px;
+      width: 10px;
+      background-color: #ffffff;
+      border-radius: 50%;
+    }
+
+    .leftDot {
+      top: calc(50% - 5px);
+      left: 5px;
+      position: absolute;
+      content: '';
+      height: 10px;
+      width: 10px;
+      background-color: #ffffff;
+      border-radius: 50%;
+    }
+  }
+}
+.explanation {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 15px;
+  background: #ffffff;
+  border: 1px solid #bcccdc;
+  box-shadow: 0px 125px 50px rgba(0, 0, 0, 0.01),
+    0px 70px 42px rgba(0, 0, 0, 0.05), 0px 31px 31px rgba(0, 0, 0, 0.09),
+    0px 8px 17px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+
+  h3 {
+    margin-bottom: 16px;
+
+    font-family: 'General Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 1;
+
+    color: #334e68;
+  }
+  p {
+    margin-bottom: 16px;
+
+    font-family: 'General Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1;
+
+    color: #334e68;
+  }
+
+  strong {
+    font-family: 'General Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-align: center;
+    line-height: 1;
+
+    color: #334e68;
+  }
+}
+
+.bigCard {
+  padding: 1rem 3rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  height: 22rem;
+  background: #ffffff;
+  border: 1px solid #bcccdc;
+  box-shadow: 0px 125px 50px rgba(0, 0, 0, 0.01),
+    0px 70px 42px rgba(0, 0, 0, 0.05), 0px 31px 31px rgba(0, 0, 0, 0.09),
+    0px 8px 17px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 24px;
+
+  @media (max-width: 1440px) {
+    height: 32rem;
+  }
+
+  @media (max-width: 768px) {
+    height: 22rem;
+  }
+
+  h4 {
+    font-family: 'General Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-align: center;
+
+    color: #000000;
+
+    margin-bottom: 1.5rem;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 5px;
+  height: 12px;
+  width: 12px;
+}
+
+.disabled {
+  padding: 1rem;
+  border: 2px dashed #868686;
+  border-radius: 12px;
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+
+  color: #868686;
+
+  @media (max-width: 768px) {
+    margin-bottom: 6rem;
+  }
+}
+
+.blueDash {
+  display: flex;
+  align-items: center;
+  border: 2px dashed #477bca;
+  border-radius: 12px;
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+
+  color: #477bca;
+}
+
+.orangeDash {
+  padding: 1rem;
+  border: 2px dashed #de911d;
+  border-radius: 12px;
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+
+  color: #de911d;
+
+  margin-bottom: 3rem;
+}
+
+.redDash {
+  padding: 1rem;
+  border: 2px dashed #d64545;
+  border-radius: 12px;
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+
+  color: #d64545;
+}
+
+.gamefield {
+  width: 26rem;
+  margin-left: auto;
+
+  @media (max-width: 768px) {
+    margin: 6rem auto 0;
+  }
+}
+
+.dimmed {
+  filter: grayscale(0.5);
+  filter: opacity(0.6);
+}
