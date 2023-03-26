@@ -2,7 +2,8 @@ import {
   ApprovalForAll as ApprovalForAllEvent,
   TransferBatch as TransferBatchEvent,
   TransferSingle as TransferSingleEvent,
-  URI as URIEvent
+  URI as URIEvent,
+  FacetRegistry
 } from "../generated/FacetRegistry/FacetRegistry"
 import { TransferSingle } from "../generated/schema"
 
@@ -19,6 +20,9 @@ export function handleTransferSingle(event: TransferSingleEvent): void {
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
+
+  const registry = FacetRegistry.bind(event.address);
+  entity.tokenType =  registry.tokenType(event.params.id)
 
   entity.save()
 }

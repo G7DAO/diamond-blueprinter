@@ -42,6 +42,16 @@ contract FacetRegistry is ERC1155, IRegistry {
         return string(metadata[tokenId]); //TODO switch to ERC1155URIStorage.sol
     }
 
+    function tokenType(uint256 tokenId) external pure returns (TokenType){
+        if (_isDiamond(tokenId)) {
+            return TokenType.Diamond;
+        }
+        if (_isStorage(tokenId)) {
+            return TokenType.DiamondStorage;
+        }
+        return TokenType.Facet;
+    }
+
     function _beforeTokenTransfer(
         address,
         address from,
@@ -56,27 +66,27 @@ contract FacetRegistry is ERC1155, IRegistry {
         }
     }
 
-    function _exists(uint256 tokenId) private view returns(bool){
+    function _exists(uint256 tokenId) private view returns (bool){
         return metadata[tokenId].length > 0;
     }
 
     function _isDiamond(uint256 tokenId) private pure returns (bool){
-    return tokenId >= baseTokenDiamond && tokenId < baseTokenStorage;
+        return tokenId >= baseTokenDiamond && tokenId < baseTokenStorage;
     }
 
     function _isStorage(uint256 tokenId) private pure returns (bool){
-    return tokenId >= baseTokenStorage && tokenId < baseTokenFacetAddress;
+        return tokenId >= baseTokenStorage && tokenId < baseTokenFacetAddress;
     }
 
     function _isFacet(uint256 tokenId) private pure returns (bool){
         return tokenId >= baseTokenFacetAddress;
     }
 
-    function _facetAddressToTokenId(address facetAddress) private pure returns(uint256){
+    function _facetAddressToTokenId(address facetAddress) private pure returns (uint256){
         return baseTokenFacetAddress + uint256(uint160(facetAddress));
     }
 
-    function _diamondAddressToTokenId(address diamondAddress) private pure returns(uint256){
+    function _diamondAddressToTokenId(address diamondAddress) private pure returns (uint256){
         return baseTokenDiamond + uint256(uint160(diamondAddress));
     }
 
