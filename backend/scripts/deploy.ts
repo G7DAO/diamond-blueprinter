@@ -1,6 +1,17 @@
-import { ethers } from "hardhat";
+import hre, { ethers } from "hardhat";
 import { getSelectors, FacetCutAction } from 'diamond-1-hardhat/scripts/libraries/diamond.js';
 import { FacetRegistry, Kimberlite } from "../typechain-types";
+
+
+async function verify(address:string, constructorArguments:any[]) {
+  if (hre.network.name == 'hardhat') {
+    return
+  }
+  await hre.run("verify:verify", {
+    address,
+    constructorArguments   
+  });
+} 
 
 async function deployKimberlite(facetRegistry: FacetRegistry): Promise<Kimberlite> {
 
@@ -16,6 +27,7 @@ async function deployKimberlite(facetRegistry: FacetRegistry): Promise<Kimberlit
     const facet = await Facet.deploy()
     await facet.deployed()
     console.log(`${facetName} deployed: ${facet.address}`)
+    await verify(facet.address, [])
     facetCuts.push({
       facetAddress: facet.address,
       action: FacetCutAction.Add,
@@ -29,6 +41,8 @@ async function deployKimberlite(facetRegistry: FacetRegistry): Promise<Kimberlit
   const DiamondInit = await ethers.getContractFactory('DiamondInit')
   const diamondInit = await DiamondInit.deploy()
   await diamondInit.deployed()
+  console.log(`DiamondInit deployed: ${diamondInit.address}`)
+  await verify(diamondInit.address, [])
 
   let functionCall = diamondInit.interface.encodeFunctionData('init')
 
@@ -42,8 +56,8 @@ async function deployKimberlite(facetRegistry: FacetRegistry): Promise<Kimberlit
   const kimberlite = await Kimberlite.deploy(facetCuts, diamondArgs, facetRegistry.address);
 
   await kimberlite.deployed();
-
   console.log(`Kimberlite deployed to ${kimberlite.address}`);
+  await verify(kimberlite.address, [facetCuts, diamondArgs, facetRegistry.address])
   return kimberlite
 }
 
@@ -52,6 +66,7 @@ async function deployRegistry(): Promise<FacetRegistry> {
   console.log('Deploying FacetRegistry')
   const registry = await Registry.deploy()
   console.log(`FacetRegistry deployed to ${registry.address}`);
+  await verify(registry.address, [])
   return registry
 }
 
