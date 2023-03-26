@@ -1,18 +1,7 @@
 import hre, { ethers } from "hardhat";
 import { getSelectors, FacetCutAction } from 'diamond-1-hardhat/scripts/libraries/diamond.js';
 import { FacetRegistry, Kimberlite } from "../typechain-types";
-
-
-async function verify(address:string, constructorArguments:any[]) {
-  if (hre.network.name == 'hardhat') {
-    return
-  }
-  await new Promise(r => setTimeout(r, 30000));
-  await hre.run("verify:verify", {
-    address,
-    constructorArguments
-  });
-}
+import { verify } from "./verify";
 
 async function deployKimberlite(facetRegistry: FacetRegistry): Promise<Kimberlite> {
 

@@ -7,7 +7,7 @@ import { deployDiamond } from 'diamond-1-hardhat/scripts/deploy.js'
 import { assert } from 'chai'
 
 import { ethers } from 'hardhat'
-import { DiamondCutFacet, DiamondLoupeFacet, OwnershipFacet, TrivialCharacterSystem } from '../typechain-types'
+import { DiamondCutFacet, DiamondLoupeFacet, OwnershipFacet, TrivialCharactersSystem } from '../typechain-types'
 
 
 describe('DiamondTest', async function () {

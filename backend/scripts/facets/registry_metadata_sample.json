@@ -4,6 +4,6 @@
     "storage_slots": {
         "character.storage": "struct AliveState {\n    mapping(uint256 => bool) alive;\n}"
     },
-    "name": "TrivialCharacterSystem",
+    "name": "TrivialCharactersSystem",
     "group": "Characters"
 }

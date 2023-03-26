@@ -90,4 +90,12 @@ contract FacetRegistry is ERC1155, IRegistry {
         return baseTokenDiamond + uint256(uint160(diamondAddress));
     }
 
+    function facetAddressToTokenId(address facetAddress) external pure returns(uint256){
+        return _facetAddressToTokenId(facetAddress);
+    }
+
+    function diamondAddressToTokenId(address diamondAddress) external pure returns(uint256){
+        return _diamondAddressToTokenId(diamondAddress);
+    }
+
 }
