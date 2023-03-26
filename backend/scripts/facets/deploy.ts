@@ -6,7 +6,7 @@ import Arweave from 'arweave';
 //import jwk_data from './../../cache/arweave-keyfile.json'
 
 const groupName = "Characters"
-const systemName = "TrivialCharacterSystem"
+const systemName = "TrivialCharactersSystem"
 const storageKey = "character.storage"
 const storageContents  = `struct AliveState {
     mapping(uint256 => bool) alive;
