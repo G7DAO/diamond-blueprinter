@@ -1,4 +1,4 @@
-import { ethers } from "hardhat";
+import hre, { ethers } from "hardhat";
 import { getSelectors, FacetCutAction } from 'diamond-1-hardhat/scripts/libraries/diamond.js';
 import { FacetRegistry, Kimberlite } from "../typechain-types";
 import { verify } from "./verify";
@@ -56,6 +56,7 @@ async function deployRegistry(): Promise<FacetRegistry> {
   console.log('Deploying FacetRegistry')
   const registry = await Registry.deploy()
   console.log(`FacetRegistry deployed to ${registry.address}`);
+  await registry.deployed()
   await verify(registry.address, [])
   return registry
 }

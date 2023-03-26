@@ -1,0 +1,24 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FacetRegistry
+    network: matic
+    source:
+      address: "0xE056F64f06e8D0F7Cd2a9501138D3aFa0eF3FF32"
+      abi: FacetRegistry
+      startBlock: 40767481
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - TransferSingle
+      abis:
+        - name: FacetRegistry
+          file: ./abis/FacetRegistry.json
+      eventHandlers:
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleTransferSingle
+      file: ./src/facet-registry.ts

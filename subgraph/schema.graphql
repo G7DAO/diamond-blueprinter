@@ -1,0 +1,11 @@
+type TransferSingle @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  tokenType: Int!
+  value: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

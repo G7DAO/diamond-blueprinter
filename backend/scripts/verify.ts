@@ -5,6 +5,7 @@ export async function verify(address: string, constructorArguments: any[]) {
   if (hre.network.name == 'hardhat') {
     return
   }
+  await new Promise(r => setTimeout(r, 30000));
   await hre.run("verify:verify", {
     address,
     constructorArguments
