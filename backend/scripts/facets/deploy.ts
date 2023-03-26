@@ -3,6 +3,7 @@ import { BaseContract } from "ethers";
 import fs from 'fs/promises';
 import path from 'path';
 import Arweave from 'arweave';
+import { verify, getEtherscanEndpoint, getEtherscanEndpointOrPolygon } from "../verify";
 //import jwk_data from './../../cache/arweave-keyfile.json'
 
 const groupName = "Characters"
@@ -26,23 +27,22 @@ const storageContents  = `struct AliveState {
 
 
 async function deploySystem(systemName: string): Promise<BaseContract> {
-
   // 1. Deploy contract with ethers and hardhat
+
+
 
   const System = await ethers.getContractFactory(systemName)
   const system = await System.deploy()
   console.log(`${systemName} deployed to ${system.address}, ${Object.keys(system)}`);
+  await verify(system.address, [])
 
-  // TODO determine the network
-
-
-
-
-
+  const etherScanEndpoint = await getEtherscanEndpointOrPolygon()
+  const explorer_url =  `${etherScanEndpoint.urls.browserURL}/address/${system.address}#code`
+  
   // 2. the resulting metadata of deployed contract is saved locally
   let resultJson = {
     address: system.address,
-    explorer_url : `https://polygonscan.com/address/${system.address}#code`,
+    explorer_url,
     name: systemName,
     group: groupName,
     [storageKey]: storageContents
@@ -95,6 +95,8 @@ async function deploySystem(systemName: string): Promise<BaseContract> {
   }
 
   //TODO  get public url of result
+  console.log(`https://viewblock.io/arweave/tx/${transactionA.id}`);
+  //TODO  await uploaded
   
   return system
 }
