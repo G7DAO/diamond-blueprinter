@@ -12,7 +12,7 @@ import { DiamondContextProvider } from '@/contexts';
 
 const { chains, provider, webSocketProvider } = configureChains(
   [polygon],
-  [alchemyProvider({ apiKey: 'Mz4PxJrs78Ud3oRJ3FlAcaPyvhLST_bw' })],
+  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY! })]
 );
 
 const { connectors } = getDefaultWallets({
